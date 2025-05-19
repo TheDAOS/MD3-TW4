@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 
-function MarkdownEditor() {
-    const [markdown, setMarkdown] = useState('');
+
+function MarkdownEditor({ markdown, setMarkdown }) {
 
     const handleChange = (e) => {
         setMarkdown(e.target.value);
@@ -10,17 +8,11 @@ function MarkdownEditor() {
 
     return (
         <div>
-            <div>
-                <textarea
-                    value={markdown}
-                    onChange={handleChange}
-                    placeholder="Write your Markdown here..."
-                />
-            </div>
-
-            <div>
-                <ReactMarkdown>{markdown}</ReactMarkdown>
-            </div>
+            <textarea
+                value={markdown}
+                onChange={handleChange}
+                placeholder="Write your Markdown here..."
+            />
         </div>
     )
 }

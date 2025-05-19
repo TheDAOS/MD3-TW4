@@ -1,4 +1,4 @@
-
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 function MarkdownEditor({ markdown, setMarkdown }) {
 
@@ -8,7 +8,7 @@ function MarkdownEditor({ markdown, setMarkdown }) {
 
     return (
         <div>
-            <textarea
+            <TextareaAutosize
                 value={markdown}
                 onChange={handleChange}
                 placeholder="Write your Markdown here..."

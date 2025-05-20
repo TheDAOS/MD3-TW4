@@ -12,15 +12,16 @@ function App() {
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid size={6}>
+    <Grid container spacing={2} style={{ height: '100vh' }}>
+      <Grid size={6} style={{ height: '100%' }}>
         <TextareaAutosize
           value={markdown}
           onChange={handleChange}
           placeholder="Write your Markdown here..."
+          style={{ width: '100%', height: '100%', boxSizing: 'border-box', resize: 'none' }}
         />
       </Grid>
-      <Grid size={6}>
+      <Grid size={6} style={{ height: '100%', overflow: 'auto' }}>
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </Grid>
     </Grid>

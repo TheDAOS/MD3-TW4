@@ -1,6 +1,6 @@
 import { Box, Button, Stack, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
-import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import SaveIcon from '@mui/icons-material/Save';
 
 function NavBar({ markdown }) {
 
@@ -9,7 +9,7 @@ function NavBar({ markdown }) {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'document.md';
+        a.download = 'file.md';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -17,9 +17,9 @@ function NavBar({ markdown }) {
     };
 
     return (
-        <AppBar position='static' sx={{ p: 1.5 }}>
+        <AppBar position='static' sx={{ p: 1, px: 5 }}>
             <Stack direction="row" spacing={2} justifyContent='space-between' alignItems='center'>
-                <Typography>
+                <Typography variant='h6'>
                     Markdown
                 </Typography>
 
@@ -29,10 +29,8 @@ function NavBar({ markdown }) {
                     spacing={2}
                     onClick={saveMarkdownToFile}
                 >
-                    <SaveAltIcon fontSize='small' />
-                    <Typography >
-                        Save File
-                    </Typography>
+                    <SaveIcon fontSize='small' style={{ marginRight: "5px" }} />
+                    Save
                 </Button>
             </Stack>
         </AppBar>

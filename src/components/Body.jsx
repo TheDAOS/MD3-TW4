@@ -20,7 +20,7 @@ function Body({ markdown, setMarkdown }) {
     }
 
     return (
-        <Grid container spacing={2} style={{ height: '90vh' }}>
+        <Grid container spacing={2} style={{ height: '92vh' }}>
             <Grid size={6} style={gridStyle}>
                 <Box component="section" sx={boxStyle}>
                     <TextareaAutosize
@@ -35,6 +35,7 @@ function Body({ markdown, setMarkdown }) {
                             color: '#fafafa',
                             outline: 'none',
                             border: 'none',
+                            padding: '10px'
                         }}
                     />
                 </Box>

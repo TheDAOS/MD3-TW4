@@ -22,7 +22,7 @@ function Body() {
   }
 
   return (
-    <Grid container spacing={2} style={{ height: '100%' }}>
+    <Grid container spacing={2} style={{ height: '90vh' }}>
       <Grid size={6} style={gridStyle}>
         <Box component="section" sx={boxStyle}>
           <TextareaAutosize

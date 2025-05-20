@@ -11,10 +11,22 @@ function App() {
     setMarkdown(e.target.value);
   };
 
+  const boxStyle = {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column'
+  };
+
+  const innerBoxStyle = {
+    flex: 1,
+    overflow: 'auto',
+    borderRadius: '8px'
+  };
+
   return (
     <Grid container spacing={2} style={{ height: '100vh' }}>
       <Grid size={6} style={{ height: '100%' }}>
-        <Box component="section" sx={{ p: 1, border: '1px solid #212121', borderRadius: '8px' }}>
+        <Box component="section" sx={{ p: 1, border: '1px solid #212121', borderRadius: '8px', ...boxStyle }}>
           <TextareaAutosize
             value={markdown}
             onChange={handleChange}
@@ -28,17 +40,19 @@ function App() {
               color: '#fafafa',
               outline: 'none',
               borderRadius: '8px',
-              border: 'none'
+              border: 'none',
+              ...innerBoxStyle,
             }}
           />
         </Box>
       </Grid>
       <Grid size={6} style={{ height: '100%', overflow: 'auto' }}>
-        <Box component="section" sx={{ p: 1, border: '1px solid #212121', borderRadius: '8px', height: '100%' }}>
+        <Box component="section" sx={{ p: 0.5, border: '0px solid #212121', borderRadius: '8px', height: '100%', ...boxStyle }}>
           <ReactMarkdown
             style={{
               borderRadius: '8px',
-              height: '100%'
+              height: '100%',
+              ...innerBoxStyle,
             }}
           >
             {markdown}

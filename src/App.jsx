@@ -11,48 +11,42 @@ function App() {
     setMarkdown(e.target.value);
   };
 
-  const boxStyle = {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  };
+  const boxStyle = { p: 1, border: '0px solid #212121', borderRadius: '8px' }
 
-  const innerBoxStyle = {
-    flex: 1,
-    overflow: 'auto',
-    borderRadius: '8px'
-  };
+  const gridStyle = { height: '100%', overflow: 'auto' };
+
+  const sideStyle = {
+    width: '100%',
+    height: '100%',
+    borderRadius: '8px',
+    scrollBehavior: 'smooth',
+  }
 
   return (
     <Grid container spacing={2} style={{ height: '100vh' }}>
-      <Grid size={6} style={{ height: '100%' }}>
-        <Box component="section" sx={{ p: 1, border: '1px solid #212121', borderRadius: '8px', ...boxStyle }}>
+      <Grid size={6} style={gridStyle}>
+        <Box component="section" sx={boxStyle}>
           <TextareaAutosize
             value={markdown}
             onChange={handleChange}
             placeholder="Write your Markdown here..."
             style={{
-              width: '100%',
-              height: '100%',
+              ...sideStyle,
               boxSizing: 'border-box',
               resize: 'none',
               backgroundColor: '#212121',
               color: '#fafafa',
               outline: 'none',
-              borderRadius: '8px',
               border: 'none',
-              ...innerBoxStyle,
             }}
           />
         </Box>
       </Grid>
-      <Grid size={6} style={{ height: '100%', overflow: 'auto' }}>
-        <Box component="section" sx={{ p: 0.5, border: '0px solid #212121', borderRadius: '8px', height: '100%', ...boxStyle }}>
+      <Grid size={6} style={gridStyle}>
+        <Box component="section" sx={boxStyle}>
           <ReactMarkdown
             style={{
-              borderRadius: '8px',
-              height: '100%',
-              ...innerBoxStyle,
+              ...sideStyle,
             }}
           >
             {markdown}
